@@ -95,4 +95,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Trigger location fetch
     fetchLocation();
+
+    // --- Mobile Menu Toggle ---
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinksContainer = document.getElementById('nav-links');
+
+    if (mobileMenuBtn && navLinksContainer) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+
+            // Toggle icon between bars and xmark
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when a link is clicked
+        const submenuLinks = navLinksContainer.querySelectorAll('a');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    }
 });

@@ -126,6 +126,21 @@ img {
     color: var(--primary-orange);
 }
 
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    color: var(--primary-orange);
+}
+
 /* Hero Section */
 .hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/hero-bg.png');
@@ -163,7 +178,29 @@ img {
 
     .nav-links {
         display: none;
-        /* Mobile menu implementation later */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        gap: 1.5rem;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .navbar {
+        position: relative;
     }
 }
 
