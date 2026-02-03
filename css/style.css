@@ -106,10 +106,19 @@ img {
     align-items: center;
 }
 
-.logo {
-    text-decoration: none;
+.logo img {
+    /* text-decoration: none;
     display: flex;
-    align-items: center;
+    align-items: center; */
+    max-height: 50px; /* desktop height */
+    width:auto; /* maintain aspect ratio */
+    height:auto; /* scale automatically */
+} 
+ 
+@media (max-width: 768px) {
+    .logo img {
+        max-height: 40px; /* smaller height for mobile */
+    }
 }
 
 .nav-links {
